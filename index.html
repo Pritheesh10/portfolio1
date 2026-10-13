@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Your Name — Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+<div id="bg-field"></div>
+<canvas id="bg-canvas"></canvas>
+
+<div class="page">
+
+<!-- NAV -->
+<div class="logo-wrapper"><div class="inner"><a href="#top" class="logo-mark">Y<span>N</span></a></div></div>
+<div class="burger-wrapper"><div class="inner">
+  <button class="burger-btn" id="burger-btn" aria-label="Open menu"><span class="bar"></span><span class="bar"></span></button>
+</div></div>
+<div class="menu-panel" id="menu-panel">
+  <nav>
+    <a href="#work">Work</a>
+    <a href="#skills">Skills</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="menu-contact">
+    <a href="mailto:your.email@example.com" class="menu-email">your.email@example.com</a>
+    <div class="menu-socials">
+      <a href="#" target="_blank">GitHub</a>
+      <a href="#" target="_blank">LinkedIn</a>
+      <a href="#" target="_blank">X</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<main class="hero" id="top">
+  <div class="hero-eyebrow"><span class="dot"></span> AVAILABLE FOR WORK</div>
+
+  <div class="hero-bg-text" aria-hidden="true">
+    <span class="line"><span>Building</span></span>
+    <span class="line"><span>systems that</span></span>
+    <span class="line"><span class="accent">think&nbsp;in&nbsp;code.</span></span>
+  </div>
+
+  <div class="hero-character hero-character-big" id="hero-character">
+    <div class="char-base" style="background-image:url('assets/hero-character-base.png')"></div>
+    <div class="char-reveal" id="char-reveal" style="background-image:url('assets/hero-character-reveal.png')"></div>
+    <div class="char-hint" id="char-hint">move your cursor over him</div>
+  </div>
+
+  <p class="hero-sub hero-sub-centered">I'm <strong style="color:var(--ink)">Pritheesh</strong> — a software engineer who turns hard problems into fast, reliable, well-crafted products.</p>
+
+  <div class="hero-actions hero-actions-centered">
+    <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      <span class="bg"></span>
+      <span class="txt">Let's talk</span>
+      <span class="circle"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M5 13L13 5M13 5H6M13 5V12" stroke="#08060D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+    <a class="btn-ghost" href="#work">View work</a>
+  </div>
+  <div class="scroll-cue"><span>SCROLL</span><span class="stem"></span></div>
+</main>
+
+<!-- SIGNAL / ABOUT — 3D scroll text -->
+<section class="signal-section" id="about">
+  <canvas id="space-canvas"></canvas>
+  <div class="signal-inner">
+    <div class="eyebrow">01 · SIGNAL</div>
+
+    <div class="crawl-viewport">
+      <p class="signal-copy" id="signal-copy">
+        <span class="fadeline">Motivated third-year B.E. Computer Science and Engineering student <b>skilled in Python, Java, and SQL, with strong analytical </b>.</span>
+        <span class="fadeline">and debugging abilities. Actively exploring software development, </span>
+        <span class="fadeline">data-centric systems, and modern technologies. <b>Committed to continuous improvement, </b>.</span>
+        <span class="fadeline">hands-on learning, and applying theoretical knowledge </span>
+        <span class="fadeline">to real-world technical challenges.<b>simple</b>.</span>
+        
+      </p>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat"><div class="num" data-count="3"><span class="val">0</span><span class="unit">+</span></div><div class="label">Years experience</div></div>
+      <div class="stat"><div class="num" data-count="10"><span class="val">0</span><span class="unit">+</span></div><div class="label">Projects shipped</div></div>
+      <div class="stat"><div class="num" data-count="99.9" data-decimal="1"><span class="val">0</span><span class="unit">%</span></div><div class="label">Uptime maintained</div></div>
+      <div class="stat"><div class="num" data-count="120"><span class="val">0</span><span class="unit">s</span></div><div class="label">Avg. response time</div></div>
+      <div class="stat"><div class="num" data-count="28"><span class="val">0</span><span class="unit">+</span></div><div class="label">Hackathons this year</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS — interactive computer with folders -->
+<section class="section reveal" id="skills">
+  <div class="eyebrow">02 · STACK</div>
+  <h2 class="section-title">Tools I reach for.</h2>
+  <p style="color:var(--dim);font-size:16px;max-width:560px;">Click a folder to see what's inside.</p>
+
+  <div class="computer">
+    <div class="computer-screen">
+      <div class="screen-topbar">
+        <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+        <span class="screen-title">skills.exe</span>
+      </div>
+      <div class="desktop" id="skills-desktop">
+        <button class="folder" data-folder="frontend">
+          <svg width="34" height="28" viewBox="0 0 34 28" fill="none"><path d="M2 6a2 2 0 0 1 2-2h8l3 3h15a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6z" fill="#4CE0FF" fill-opacity="0.85"/></svg>
+          <span>Frontend</span>
+        </button>
+        <button class="folder" data-folder="backend">
+          <svg width="34" height="28" viewBox="0 0 34 28" fill="none"><path d="M2 6a2 2 0 0 1 2-2h8l3 3h15a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6z" fill="#FF3FA4" fill-opacity="0.85"/></svg>
+          <span>Backend</span>
+        </button>
+        <button class="folder" data-folder="infra">
+          <svg width="34" height="28" viewBox="0 0 34 28" fill="none"><path d="M2 6a2 2 0 0 1 2-2h8l3 3h15a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6z" fill="#ffd76b" fill-opacity="0.85"/></svg>
+          <span>Infra & Tools</span>
+        </button>
+        <button class="folder" data-folder="languages">
+          <svg width="34" height="28" viewBox="0 0 34 28" fill="none"><path d="M2 6a2 2 0 0 1 2-2h8l3 3h15a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6z" fill="#8fffb0" fill-opacity="0.85"/></svg>
+          <span>Languages</span>
+        </button>
+      </div>
+
+      <div class="file-window" id="file-window">
+        <div class="file-window-header">
+          <span id="file-window-title">Frontend</span>
+          <button id="file-window-close" aria-label="Close">×</button>
+        </div>
+        <ul class="file-list" id="file-list"></ul>
+      </div>
+    </div>
+    <div class="computer-base"></div>
+  </div>
+</section>
+
+<!-- LIVE STATS -->
+<section class="live-stats-section reveal">
+  <div class="live-stats-inner">
+    <div class="eyebrow">03 · LIVE</div>
+    <h2 class="section-title">Numbers, updating as I work.</h2>
+    <p style="color:var(--dim);font-size:15px;max-width:480px;margin-bottom:20px;">
+      Simulated live readout — not a real backend feed, just a bit of theatre for the numbers that matter.
+    </p>
+    <div class="live-stats-row">
+      <div class="live-stat">
+        <div class="live-num" id="stat-projects">10</div>
+        <div class="live-label">Projects shipped</div>
+      </div>
+      <div class="live-stat">
+        <div class="live-num"><span id="stat-response-val">118</span><span class="live-unit">ms</span></div>
+        <div class="live-label">Avg. response time</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section reveal" id="work">
+  <div class="eyebrow">04 · WORK</div>
+  <h2 class="section-title">Selected projects.</h2>
+  <div class="projects-grid">
+    <div class="project-row">
+      <div class="project-num">01</div>
+      <div class="project-body">
+        <h3>POSTURE MONITOR</h3>
+        <p>Developed a real-time posture monitoring system as a team to improve posture, reduce health issues, and assess ts potential adoption in
+the health and wellness market.</p>
+        <div class="project-tags"><span>React</span><span>Node.js</span><span>PostgreSQL</span></div>
+      </div>
+      <a class="project-link" href="#" target="_blank" aria-label="View project">
+        <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M5 13L13 5M13 5H6M13 5V12" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="project-row">
+      <div class="project-num">02</div>
+      <div class="project-body">
+        <h3>CATTLE BREED RECOGNIZATION USING AI CAMERAS</h3>
+        <p>This project focuses on solving the challenge of accurate cattle breed identification in agriculture using advanced AI techniques. The
+system is capable of classifying 11 different cattle and buffalo breeds with high accuracy, providing farmers and veterinary professionals
+with quick and reliable breed recognition.
+</p>
+        <div class="project-tags"><span>TypeScript</span><span>Three.js</span></div>
+      </div>
+      <a class="project-link" href="#" target="_blank" aria-label="View project">
+        <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M5 13L13 5M13 5H6M13 5V12" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="project-row">
+      <div class="project-num">03</div>
+      <div class="project-body">
+        <h3>VAXI-TRACK</h3>
+        <p>Vaxi-Track is a web-based Digital Immunization Tracking System designed to address these issues. The system allows parents and
+healthcare workers to maintain digital immunization records, receive automated reminders for upcoming vaccinations, and schedule
+appointments at nearby health centers. By digitizing vaccination management, Vaxi-Track improves healthcare efficiency, reduces missed
+doses, and supports SDG 3 – Good Health and Well- Being.
+</p>
+        <div class="project-tags"><span>Python</span><span>AWS</span></div>
+      </div>
+      <a class="project-link" href="#" target="_blank" aria-label="View project">
+        <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M5 13L13 5M13 5H6M13 5V12" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section class="section reveal" id="resume">
+  <div class="eyebrow">05 · RESUME</div>
+  <h2 class="section-title">Read the whole file.</h2>
+  <div class="resume-panel">
+    <div class="resume-left">
+      <h3>PRITHEESH— Resume</h3>
+      <p>View it inline or download the PDF. </p>
+      <div class="resume-file-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="1.5"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.5"/></svg>
+        PRITHEESH_RESUME.pdf
+      </div>
+    </div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;">
+      <a class="btn-ghost" href="assets/PRITHEESH_RESUME (1).pdf" target="_blank">View resume</a>
+      <a class="btn-primary" href="assets/PRITHEESH_RESUME (1).pdf" download>
+        <span class="bg"></span>
+        <span class="txt">Download PDF</span>
+        <span class="circle">
+          <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M9 3v9m0 0l4-4m-4 4L5 8M3 15h12" stroke="#08060D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section reveal" id="contact">
+  <div class="eyebrow">06 · CONTACT</div>
+  <h2 class="section-title">Let's build something.</h2>
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <p>Have a role, a project, or just want to say hi? Send a message and I'll get back to you directly.</p>
+      <div class="contact-direct">
+        <a href="mailto:your.email@example.com">pritheesh.28csb@licet.ac.in</a>
+        <a href="#" target="_blank">https://github.com/Pritheesh10</a>
+        <a href="#" target="_blank">https://www.linkedin.com/in/pritheesh10/</a>
+      </div>
+    </div>
+    <form id="contact-form">
+      <div class="form-group"><label for="cf-name">Name</label><input id="cf-name" name="from_name" type="text" required placeholder="Name"/></div>
+      <div class="form-group"><label for="cf-email">Email</label><input id="cf-email" name="reply_to" type="email" required placeholder="example@company.com"/></div>
+      <div class="form-group"><label for="cf-msg">Message</label><textarea id="cf-msg" name="message" rows="5" required placeholder="Tell me a bit about the role or project..."></textarea></div>
+      <button type="submit" class="form-submit" id="cf-submit">Send message</button>
+      <div class="form-status" id="cf-status"></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> PRITHEESH. Built with code.
+  &nbsp;·&nbsp; <a href="#top">Back to top</a>
+</footer>
+
+</div><!-- /.page -->
+
+<script src="js/main.js"></script>
+</body>
+</html>
